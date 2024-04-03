@@ -1,0 +1,16 @@
+import casa.*
+
+test "viveres y reparaciones" {
+	assert.equals(true,casaDePepeYJulian.tieneSufucientes())
+	assert.equals(false,casaDePepeYJulian.necesitaReparar())
+	casaDePepeYJulian.romperAlgo(1000)
+	assert.equals(true,casaDePepeYJulian.necesitaReparar())
+}
+test "depositando y pagando en cuenta combinada"{
+	casaDePepeYJulian.asignarCuenta(cuentaCombinada)
+	casaDePepeYJulian.depositarDinero(100)
+	casaDePepeYJulian.realizarGasto(200)
+	assert.equals(50,cuentaGastos.saldo())
+	assert.equals(300,cuentaCorriente.saldo())
+	assert.equals(350,cuentaCombinada.saldo())
+}
