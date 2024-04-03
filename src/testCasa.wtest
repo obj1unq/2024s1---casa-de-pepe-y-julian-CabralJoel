@@ -14,3 +14,20 @@ test "depositando y pagando en cuenta combinada"{
 	assert.equals(300,cuentaCorriente.saldo())
 	assert.equals(350,cuentaCombinada.saldo())
 }
+test "primer estrategia"{
+	casaDePepeYJulian.elegirEstrategia(minimo,5)
+	casaDePepeYJulian.asignarCuenta(cuentaCorriente)
+	casaDePepeYJulian.establecerViveres(30)
+	casaDePepeYJulian.usarEstrategia()
+	assert.equals(40,casaDePepeYJulian.viveres())
+	assert.equals(450,cuentaCorriente.saldo())
+}
+test "segunda estrategia"{
+	casaDePepeYJulian.elegirEstrategia(full,5)
+	casaDePepeYJulian.asignarCuenta(cuentaCorriente)
+	casaDePepeYJulian.depositarDinero(500)//tiene 1000 en total ahora
+	casaDePepeYJulian.romperAlgo(100)
+	casaDePepeYJulian.usarEstrategia()
+	assert.equals(90,casaDePepeYJulian.viveres())
+	assert.equals(800,cuentaCorriente.saldo())
+}
